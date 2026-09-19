@@ -1,54 +1,66 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lucky Spin</title>
-    <meta
-      name="description"
-      content="Interactive wheel of fortune game with prize list, winner history, and sound effects."
-    />
-    <link rel="stylesheet" href="style.css" />
+    <title>عجلة الحظ للبث</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="app-shell">
-      <header class="topbar">
-        <div class="brand" aria-label="Lucky spin brand">Lucky <span>Spin</span></div>
-        <button id="resetBtn" class="reset-btn" type="button">Reset</button>
-      </header>
-
-      <main class="main-layout">
-        <section class="wheel-panel" aria-label="Fortune wheel section">
-          <div class="wheel-wrap">
-            <div class="wheel-glow" aria-hidden="true"></div>
-            <div class="pointer" aria-hidden="true"></div>
-            <canvas id="wheel" width="560" height="560" aria-label="Wheel of fortune canvas"></canvas>
+    <div class="app">
+      <div class="wheel-panel">
+        <div class="wheel-wrap">
+          <div class="pointer"></div>
+          <div class="wheel-center">
+            <span>دور</span>
           </div>
-        </section>
+          <div id="wheel" class="wheel" aria-label="عجلة الحظ"></div>
+        </div>
+      </div>
 
-        <aside class="sidebar" aria-label="Game controls panel">
-          <div class="panel">
-            <h3>Add Prize</h3>
-            <div class="input-row">
-              <input id="entryInput" type="text" maxlength="22" placeholder="Enter a prize..." />
-              <button id="addBtn" class="add-btn" type="button">Add</button>
-            </div>
+      <div class="side-panel">
+        <div class="header">
+          <p class="eyebrow">LIVE HOST</p>
+          <h1>عجلة الحظ</h1>
+        </div>
 
-            <h3>Prize List</h3>
-            <div id="entryList" class="entry-list" aria-live="polite"></div>
+        <div class="stats">
+          <div class="stat">
+            <span>اللاعبين</span>
+            <strong id="playerCount">0</strong>
+          </div>
+          <div class="stat">
+            <span>الفائز</span>
+            <strong id="winnerBadge">-</strong>
+          </div>
+        </div>
+
+        <div class="controls">
+          <input
+            id="playerInput"
+            type="text"
+            maxlength="20"
+            placeholder="أدخل اسم لاعب"
+            aria-label="اسم اللاعب"
+          />
+          <div class="button-row">
+            <button id="addPlayerBtn" class="primary">إضافة</button>
+            <button id="resetBtn" class="secondary">إعادة تعيين</button>
+          </div>
+        </div>
+
+        <div class="players-box">
+          <div class="players-header">
+            <h2>قائمة اللاعبين</h2>
+            <button id="clearBtn" class="tiny">مسح</button>
           </div>
 
-          <div class="panel">
-            <button id="spinBtn" class="spin-btn" type="button">Spin the wheel</button>
-            <div id="status" class="status" aria-live="polite">Ready to spin</div>
-          </div>
+          <ul id="playersList" class="players-list"></ul>
+        </div>
 
-          <div class="panel">
-            <h3>Winner History</h3>
-            <ul id="historyList" class="history-list" aria-live="polite"></ul>
-          </div>
-        </aside>
-      </main>
+        <button id="spinBtn" class="spin-btn" disabled>ابدأ الدوران</button>
+      </div>
     </div>
 
     <script src="script.js"></script>
