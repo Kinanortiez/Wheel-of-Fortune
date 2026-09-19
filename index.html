@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lucky Spin</title>
+    <meta
+      name="description"
+      content="Interactive wheel of fortune game with prize list, winner history, and sound effects."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand" aria-label="Lucky spin brand">Lucky <span>Spin</span></div>
+        <button id="resetBtn" class="reset-btn" type="button">Reset</button>
+      </header>
+
+      <main class="main-layout">
+        <section class="wheel-panel" aria-label="Fortune wheel section">
+          <div class="wheel-wrap">
+            <div class="wheel-glow" aria-hidden="true"></div>
+            <div class="pointer" aria-hidden="true"></div>
+            <canvas id="wheel" width="560" height="560" aria-label="Wheel of fortune canvas"></canvas>
+          </div>
+        </section>
+
+        <aside class="sidebar" aria-label="Game controls panel">
+          <div class="panel">
+            <h3>Add Prize</h3>
+            <div class="input-row">
+              <input id="entryInput" type="text" maxlength="22" placeholder="Enter a prize..." />
+              <button id="addBtn" class="add-btn" type="button">Add</button>
+            </div>
+
+            <h3>Prize List</h3>
+            <div id="entryList" class="entry-list" aria-live="polite"></div>
+          </div>
+
+          <div class="panel">
+            <button id="spinBtn" class="spin-btn" type="button">Spin the wheel</button>
+            <div id="status" class="status" aria-live="polite">Ready to spin</div>
+          </div>
+
+          <div class="panel">
+            <h3>Winner History</h3>
+            <ul id="historyList" class="history-list" aria-live="polite"></ul>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
